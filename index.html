@@ -30,18 +30,24 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 html { background-color: var(--bg); }
-/* ── Landing background: semi-transparent image over black ── */
+/* ── Landing: black base + semi-transparent image layered on top ── */
 body {
   background-color: var(--bg);
-  background-image:
-    linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.55) 100%),
-    url('bg-landing.jpg');
+  position: relative;
+  min-height: 100vh;
+}
+.bg-image {
+  position: fixed;
+  inset: 0;
+  background-image: url('bg-landing.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
+  opacity: 0.28;
+  z-index: 0;
+  pointer-events: none;
 }
+nav, section, footer { position: relative; z-index: 1; }
 a {
   color: var(--link);
   text-decoration: none;
@@ -151,11 +157,12 @@ nav {
   .hero { padding: 40px 20px 60px; min-height: calc(100vh - 100px); }
   .hero h1 { font-size: 2rem; }
   .poem { font-size: 1.05rem; }
-  body { font-size: 18px; background-attachment: scroll; }
+  body { font-size: 18px; }
 }
 </style>
 </head>
 <body>
+<div class="bg-image"></div>
 <nav>
   <a href="index.html" class="nav-name">Natasha C. Greenstein</a>
   <div class="nav-links">
@@ -166,21 +173,15 @@ nav {
   </div>
 </nav>
 <section class="hero">
-  <h1 class="fade-in">Quantum Meets Life Science</h1>
+  <h1 class="fade-in">Natasha C. Greenstein</h1>
   <p class="tagline fade-in delay-1">Mapping the landscapes of interdisciplinary convergence</p>
   <p class="poem fade-in delay-2">
     What happens when the great mysteries of life converge on each other?
-    </p>
     When the subtle way of the Dao guides us towards the ever present yet ever fleeting moments of infinite quantum fields?
-    </p>
     When the curves and whorls of psychedelic experiences mirror the curves and whorls of our lungs, our veins, the stars, the trees?
-    </p>
     What happens when the great mysteries of life converge?
-    </p>
     We begin to see patterns in the way things behave. Trends in the way things function.
-    </p>
     And in our endless pursuit to quantify these phenomena, we find ourselves at the geometric representation of interdisciplinary junction.
-    </p>
   </p>
   <a href="about.html" class="learn-more fade-in delay-3">Learn More</a>
 </section>
