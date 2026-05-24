@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Natasha C. Greenstein</title>
+<meta name="description" content="About Natasha C. Greenstein — mapping the landscapes of interdisciplinary convergence">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --text: #ededed;
+  --muted: #8a8a8a;
+  --rule: #1f1f1f;
+  --rule-strong: #2c2c2c;
+  --link: #ededed;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* ── Background image ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.92) 100%),
+    url('bg-about.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-strong);
+  transition: border-color 160ms ease;
+}
+a:hover { border-bottom-color: var(--text); }
+/* ── Navigation ── */
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 36px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.nav-name {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-bottom: none;
+  color: var(--text);
+}
+.nav-links {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  gap: 22px;
+}
+.nav-links a {
+  border-bottom: none;
+  color: var(--muted);
+  transition: color 160ms ease;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--text); }
+/* ── Main ── */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 52px 36px 120px;
+}
+header.about-header {
+  max-width: 720px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 80px;
+}
+header.about-header h1 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0 0 6px;
+  letter-spacing: -0.005em;
+}
+header.about-header .tagline {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  color: var(--muted);
+  margin: 0 0 22px;
+  font-size: 1.05rem;
+}
+.links-row {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.links-row a {
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 1px;
+}
+/* ── Alternating bio sections ── */
+.bio-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 110px;
+}
+.bio-section:last-child { margin-bottom: 0; }
+.bio-section.reverse .bio-text { order: 2; }
+.bio-section.reverse .bio-photo { order: 1; }
+.bio-text p {
+  margin: 0 0 16px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.bio-text p:last-child { margin-bottom: 0; }
+.bio-text .eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-bottom: 18px;
+  display: block;
+}
+.bio-photo img,
+.bio-photo .photo-placeholder {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--rule-strong);
+  display: block;
+}
+.bio-photo .photo-placeholder {
+  background: linear-gradient(180deg, #161616 0%, #0e0e0e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 12px;
+}
+.bio-section.reverse .bio-photo { display: flex; justify-content: flex-end; }
+.bio-section:not(.reverse) .bio-photo { display: flex; justify-content: flex-start; }
+/* ── Footer ── */
+footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 36px 48px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+}
+/* ── Scroll fade-in ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+::selection { background: #ededed; color: #0a0a0a; }
+@media (max-width: 800px) {
+  nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; }
+  main { padding: 36px 20px 72px; }
+  body { font-size: 18px; }
+  footer { padding: 18px 20px 48px; }
+  header.about-header { margin-bottom: 56px; }
+  .bio-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 72px;
+  }
+  /* On mobile, always show photo above text regardless of reverse */
+  .bio-section.reverse .bio-text,
+  .bio-section.reverse .bio-photo,
+  .bio-section .bio-text,
+  .bio-section .bio-photo {
+    order: initial;
+  }
+  .bio-section .bio-photo,
+  .bio-section.reverse .bio-photo {
+    justify-content: center;
+  }
+  .bio-photo img,
+  .bio-photo .photo-placeholder {
+    max-width: 320px;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-name">Natasha C. Greenstein</a>
+  <div class="nav-links">
+    <a href="about.html" class="active">About</a>
+    <a href="research.html">Research</a>
+    <a href="media.html">Media</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<main>
+  <header class="about-header fade-in">
+    <h1>About</h1>
+    <p class="tagline">Mapping the landscapes of interdisciplinary convergence</p>
+    <div class="links-row">
+      <a href="mailto:natasha.greenstein@gmail.com">Email</a>
+      <a href="cv.pdf">CV</a>
+      <a href="https://scholar.google.com/citations?user=uBGciMwAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/natasha-greenstein-31a405197/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </header>
+
+  <!-- Section 1 — text left, photo right -->
+  <section class="bio-section">
+    <div class="bio-text fade-in">
+      <span class="eyebrow">The work</span>
+      <p>
+        From theoretical validation of quantum biology experimental results
+        to computational fractal analysis merging scales of complex systems,
+        the core of my projects is to answer these questions empirically — looking for
+        the geometric signatures where disciplines quietly converge.
+      </p>
+    </div>
+    <div class="bio-photo fade-in">
+      <div class="photo-placeholder">Photo coming soon</div>
+      <!-- To use a real image: <img src="photo-1.jpg" alt="Natasha Greenstein" /> -->
+    </div>
+  </section>
+
+  <!-- Section 2 — photo left, text right -->
+  <section class="bio-section reverse">
+    <div class="bio-text fade-in">
+      <span class="eyebrow">The questions</span>
+      <p>
+        How does quantum information express itself in neurobiological systems?
+        Are magnetic fields of biological orders of magnitude sufficient for altering
+        information on quantum computers? These are the kinds of questions that pull
+        me between the lab bench and the chalkboard, between physics and the mind.
+      </p>
+    </div>
+    <div class="bio-photo fade-in">
+      <div class="photo-placeholder">Photo coming soon</div>
+      <!-- To use a real image: <img src="photo-2.jpg" alt="Natasha Greenstein" /> -->
+    </div>
+  </section>
+
+  <!-- Section 3 — text left, photo right -->
+  <section class="bio-section">
+    <div class="bio-text fade-in">
+      <span class="eyebrow">The path</span>
+      <p>
+        Trained in the Physics Department of Princeton University for my Bachelor's,
+        I am currently completing my Master's in Brain and Cognition at
+        Universitat Pompeu Fabra in Barcelona — bringing the tools of theoretical physics
+        into the study of consciousness and complex living systems.
+      </p>
+    </div>
+    <div class="bio-photo fade-in">
+      <div class="photo-placeholder">Photo coming soon</div>
+      <!-- To use a real image: <img src="photo-3.jpg" alt="Natasha Greenstein" /> -->
+    </div>
+  </section>
+
+  <!-- Section 4 — photo left, text right -->
+  <section class="bio-section reverse">
+    <div class="bio-text fade-in">
+      <span class="eyebrow">The invitation</span>
+      <p>
+        Curious? Let's connect with Nature and explore the depths of the Universe together.
+        I welcome conversations across disciplines — physics, neuroscience, philosophy,
+        and the spaces in between where the most interesting questions tend to live.
+      </p>
+    </div>
+    <div class="bio-photo fade-in">
+      <div class="photo-placeholder">Photo coming soon</div>
+      <!-- To use a real image: <img src="photo-4.jpg" alt="Natasha Greenstein" /> -->
+    </div>
+  </section>
+</main>
+<footer class="fade-in">
+  &copy; Natasha Greenstein &middot; Barcelona
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.fade-in').forEach(function (el) {
+    observer.observe(el);
+  });
+});
+</script>
+</body>
+</html>
