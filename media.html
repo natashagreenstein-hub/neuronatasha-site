@@ -19,8 +19,7 @@
 }
 * { box-sizing: border-box; }
 html, body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background: var(--bg);
   color: var(--text);
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
@@ -30,6 +29,18 @@ html, body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,0.84) 0%, rgba(10,10,10,0.84) 100%),
+    url('bg-media.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
 a {
   color: var(--link);
   text-decoration: none;
@@ -38,7 +49,7 @@ a {
 }
 a:hover { border-bottom-color: var(--text); }
 nav {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 28px 28px 0;
   display: flex;
@@ -68,7 +79,7 @@ nav {
 .nav-links a:hover,
 .nav-links a.active { color: var(--text); }
 main {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 52px 28px 120px;
 }
@@ -102,10 +113,7 @@ ul.entries li {
   border-bottom: 1px solid var(--rule);
 }
 ul.entries li:last-child { border-bottom: none; }
-.entry-title {
-  display: block;
-  font-weight: 500;
-}
+.entry-title { display: block; font-weight: 500; }
 .entry-meta {
   display: block;
   color: var(--muted);
@@ -124,7 +132,7 @@ ul.entries li:last-child { border-bottom: none; }
   gap: 14px;
 }
 footer {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 18px 28px 48px;
   border-top: 1px solid var(--rule);
@@ -132,6 +140,15 @@ footer {
   font-size: 0.85rem;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.02em;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 ::selection { background: #ededed; color: #0a0a0a; }
 @media (max-width: 520px) {
@@ -155,25 +172,25 @@ footer {
 </nav>
 
 <main>
-  <h1 class="page-title">Media</h1>
+  <h1 class="page-title fade-in">Media</h1>
 
-  <h2 class="section-label">Talks</h2>
+  <h2 class="section-label fade-in">Talks</h2>
   <ul class="entries">
-    <li>
+    <li class="fade-in">
       <span class="entry-title">From spin states to neural correlates: the quantum mechanical basis of avian navigation</span>
       <span class="entry-meta"><em>BARCCSYN</em> &mdash; Barcelona Computational, Cognitive and Systems Neuroscience, Girona, January 2026.</span>
       <div class="entry-links">
         <a href="https://www.youtube.com/watch?v=FYTkWvm7Za8&t=1788s" target="_blank" rel="noopener">YouTube</a>
       </div>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">How Birds Use Quantum Mechanics to Migrate Across the Globe</span>
       <span class="entry-meta"><em>Princeton Research Day</em>, 2025.</span>
       <div class="entry-links">
         <a href="https://mediacentral.princeton.edu/media/How+Birds+Use+Quantum+Mechanics+to+Migrate+Across+the+Globe%2C+Natasha+Greenstein%2C+UG+25+%2815834%29/1_p0m1ii71/13468231" target="_blank" rel="noopener">Watch</a>
       </div>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">Quantum-Like Mind: Consciousness as an Analogous System to Quantum Theory</span>
       <span class="entry-meta"><em>Princeton Research Day</em>, 2024.</span>
       <div class="entry-links">
@@ -183,9 +200,20 @@ footer {
   </ul>
 </main>
 
-<footer>
-  &copy; Natasha Greenstein &middot; Barcelona
-</footer>
+<footer class="fade-in">&copy; Natasha Greenstein &middot; Barcelona</footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.fade-in').forEach(function (el) { observer.observe(el); });
+});
+</script>
 </body>
 </html>

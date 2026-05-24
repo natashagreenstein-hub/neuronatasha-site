@@ -19,8 +19,7 @@
 }
 * { box-sizing: border-box; }
 html, body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background: var(--bg);
   color: var(--text);
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
@@ -30,6 +29,18 @@ html, body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,0.84) 0%, rgba(10,10,10,0.84) 100%),
+    url('bg-research.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
 a {
   color: var(--link);
   text-decoration: none;
@@ -37,10 +48,8 @@ a {
   transition: border-color 160ms ease;
 }
 a:hover { border-bottom-color: var(--text); }
-
-/* ── Navigation ── */
 nav {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 28px 28px 0;
   display: flex;
@@ -69,10 +78,8 @@ nav {
 }
 .nav-links a:hover,
 .nav-links a.active { color: var(--text); }
-
-/* ── Main content ── */
 main {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 52px 28px 120px;
 }
@@ -106,10 +113,7 @@ ul.entries li {
   border-bottom: 1px solid var(--rule);
 }
 ul.entries li:last-child { border-bottom: none; }
-.entry-title {
-  display: block;
-  font-weight: 500;
-}
+.entry-title { display: block; font-weight: 500; }
 .entry-meta {
   display: block;
   color: var(--muted);
@@ -120,15 +124,15 @@ ul.entries li:last-child { border-bottom: none; }
 .entry-meta em { font-style: normal; }
 .entry-status {
   display: inline-block;
-  margin-top: 5px;
+  margin-top: 6px;
   font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
   border: 1px solid var(--rule-strong);
   border-radius: 2px;
-  padding: 1px 6px;
+  padding: 1px 7px;
 }
 .entry-links {
   margin-top: 7px;
@@ -140,7 +144,7 @@ ul.entries li:last-child { border-bottom: none; }
   gap: 14px;
 }
 footer {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 18px 28px 48px;
   border-top: 1px solid var(--rule);
@@ -148,6 +152,15 @@ footer {
   font-size: 0.85rem;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.02em;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 ::selection { background: #ededed; color: #0a0a0a; }
 @media (max-width: 520px) {
@@ -171,39 +184,39 @@ footer {
 </nav>
 
 <main>
-  <h1 class="page-title">Research</h1>
+  <h1 class="page-title fade-in">Research</h1>
 
-  <h2 class="section-label">Published</h2>
+  <h2 class="section-label fade-in">Published</h2>
   <ul class="entries">
-    <li>
+    <li class="fade-in">
       <span class="entry-title">Quantum-Like Dynamics in the Human Brain</span>
       <span class="entry-meta"><em>Preprint</em>, bioRxiv, 2025.</span>
       <div class="entry-links">
         <a href="https://www.biorxiv.org/content/10.1101/2025.10.02.680057" target="_blank" rel="noopener">bioRxiv</a>
       </div>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">Senior Thesis &mdash; Birds, Brains, and Quantum Biology: the Influence of Quantum Dynamics on Classical Biological Behavior</span>
       <span class="entry-meta"><em>Princeton University</em>, 2025. Advised by Prof. William Bialek and Prof. Gregory Scholes.</span>
       <div class="entry-links">
         <a href="senior-thesis.pdf" target="_blank">PDF</a>
       </div>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">Junior Paper II &mdash; Quantum-like mind: consciousness as an analogous system to quantum theory</span>
       <span class="entry-meta"><em>Princeton University</em>, 2024. Advised by Prof. Gregory Scholes and Prof. William Bialek.</span>
       <div class="entry-links">
         <a href="junior-paper.pdf" target="_blank">PDF</a>
       </div>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">A novel method for rapid estimation of active bone marrow dose for radiotherapy patients in epidemiological studies</span>
       <span class="entry-meta"><em>Medical Physics</em>, American Association of Physicists in Medicine, 2024.</span>
       <div class="entry-links">
         <a href="https://aapm.onlinelibrary.wiley.com/doi/full/10.1002/mp.17118" target="_blank" rel="noopener">Journal</a>
       </div>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">Investigation of the influence of thyroid location on iodine-131 s-values</span>
       <span class="entry-meta"><em>Radiation Protection Dosimetry</em>, 2020.</span>
       <div class="entry-links">
@@ -212,37 +225,48 @@ footer {
     </li>
   </ul>
 
-  <h2 class="section-label">In Progress</h2>
+  <h2 class="section-label fade-in">In Progress</h2>
   <ul class="entries">
-    <li>
+    <li class="fade-in">
       <span class="entry-title">Turtles all the way down: mitochondrial radical pair mechanisms as quantum origins of metabolism</span>
       <span class="entry-meta">With MemBrain co.</span>
       <span class="entry-status">In publication process</span>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">Effect of low intensity static magnetic fields coupled with a light stimulation on mitochondria morphology and ROS generation</span>
       <span class="entry-meta">With Dr. Shey-Shing Sheu.</span>
       <span class="entry-status">In publication process</span>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">Congruent signatures of fractal criticality are reflected across quantum and cortical scales</span>
       <span class="entry-meta">Thesis in progress. Invited to give talk at Quantum Effects in Biological Systems, June 2026.</span>
       <span class="entry-status">In progress</span>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">Metabolism matters: scaling noise by regional oxygen consumption in whole-brain models improves fit to empirical data</span>
       <span class="entry-status">In publication process</span>
     </li>
-    <li>
+    <li class="fade-in">
       <span class="entry-title">A radical pair mechanism model for conscious influence on quantum random number generators invokes biomagnetic orders of magnitude</span>
       <span class="entry-status">In publication process</span>
     </li>
   </ul>
 </main>
 
-<footer>
-  &copy; Natasha Greenstein &middot; Barcelona
-</footer>
+<footer class="fade-in">&copy; Natasha Greenstein &middot; Barcelona</footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.fade-in').forEach(function (el) { observer.observe(el); });
+});
+</script>
 </body>
 </html>

@@ -19,8 +19,7 @@
 }
 * { box-sizing: border-box; }
 html, body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background: var(--bg);
   color: var(--text);
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
@@ -30,6 +29,18 @@ html, body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,0.84) 0%, rgba(10,10,10,0.84) 100%),
+    url('bg-contact.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
 a {
   color: var(--link);
   text-decoration: none;
@@ -38,7 +49,7 @@ a {
 }
 a:hover { border-bottom-color: var(--text); }
 nav {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 28px 28px 0;
   display: flex;
@@ -68,7 +79,7 @@ nav {
 .nav-links a:hover,
 .nav-links a.active { color: var(--text); }
 main {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 52px 28px 120px;
 }
@@ -76,25 +87,105 @@ h1.page-title {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 2.2rem;
   font-weight: 500;
+  margin: 0 0 10px;
+  letter-spacing: -0.005em;
+}
+.page-subtitle {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1.05rem;
   margin: 0 0 48px;
   padding-bottom: 28px;
   border-bottom: 1px solid var(--rule);
-  letter-spacing: -0.005em;
 }
-.contact-block {
-  margin-bottom: 36px;
+
+/* ── Contact form ── */
+.contact-form {
+  margin-bottom: 56px;
 }
+.form-group {
+  margin-bottom: 32px;
+}
+.form-group label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule-strong);
+  color: var(--text);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  padding: 6px 0 10px;
+  outline: none;
+  transition: border-color 200ms ease;
+  caret-color: var(--text);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--text);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--rule-strong);
+}
+.form-group textarea {
+  height: 130px;
+  resize: vertical;
+  line-height: 1.6;
+}
+.form-submit {
+  margin-top: 8px;
+}
+.form-submit button {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  color: var(--text);
+  padding: 11px 32px;
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+.form-submit button:hover {
+  border-color: var(--text);
+  background: rgba(237,237,237,0.06);
+}
+
+/* ── Direct contact info ── */
+.contact-divider {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 48px 0;
+}
+.contact-info {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.contact-block {}
 .contact-label {
   font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   color: var(--muted);
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 }
 .contact-value {
-  font-size: 1.05rem;
+  font-size: 1rem;
+  margin: 0;
 }
 .links-row {
   font-family: 'Inter', sans-serif;
@@ -109,7 +200,7 @@ h1.page-title {
   border-top: 1px solid var(--rule);
 }
 footer {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 18px 28px 48px;
   border-top: 1px solid var(--rule);
@@ -118,12 +209,22 @@ footer {
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.02em;
 }
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 ::selection { background: #ededed; color: #0a0a0a; }
 @media (max-width: 520px) {
   nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; }
   main { padding: 36px 20px 72px; }
   body { font-size: 18px; }
   footer { padding-left: 20px; padding-right: 20px; }
+  .contact-info { flex-direction: column; gap: 24px; }
 }
 </style>
 </head>
@@ -140,30 +241,74 @@ footer {
 </nav>
 
 <main>
-  <h1 class="page-title">Contact</h1>
+  <h1 class="page-title fade-in">Interested in connecting?</h1>
+  <p class="page-subtitle fade-in">Let's get in touch.</p>
 
-  <div class="contact-block">
-    <p class="contact-label">Email</p>
-    <p class="contact-value">
-      <a href="mailto:natasha.greenstein@gmail.com">natasha.greenstein@gmail.com</a>
-    </p>
+  <!--
+    To make this form work, sign up free at formspree.io,
+    create a form, and replace YOUR_FORM_ID below with your actual form ID.
+  -->
+  <form
+    class="contact-form fade-in"
+    action="https://formspree.io/f/YOUR_FORM_ID"
+    method="POST">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required />
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+    </div>
+
+    <div class="form-submit">
+      <button type="submit">Send</button>
+    </div>
+  </form>
+
+  <hr class="contact-divider">
+
+  <div class="contact-info fade-in">
+    <div class="contact-block">
+      <p class="contact-label">Email</p>
+      <p class="contact-value">
+        <a href="mailto:natasha.greenstein@gmail.com">natasha.greenstein@gmail.com</a>
+      </p>
+    </div>
+    <div class="contact-block">
+      <p class="contact-label">Based in</p>
+      <p class="contact-value">Barcelona, Spain</p>
+    </div>
   </div>
 
-  <div class="contact-block">
-    <p class="contact-label">Based in</p>
-    <p class="contact-value">Barcelona, Spain</p>
-  </div>
-
-  <div class="links-row">
+  <div class="links-row fade-in">
     <a href="cv.pdf" target="_blank">CV</a>
     <a href="https://scholar.google.com/citations?user=uBGciMwAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
     <a href="https://www.linkedin.com/in/natasha-greenstein-31a405197/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </main>
 
-<footer>
-  &copy; Natasha Greenstein &middot; Barcelona
-</footer>
+<footer class="fade-in">&copy; Natasha Greenstein &middot; Barcelona</footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.fade-in').forEach(function (el) { observer.observe(el); });
+});
+</script>
 </body>
 </html>

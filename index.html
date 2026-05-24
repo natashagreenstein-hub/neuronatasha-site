@@ -30,6 +30,21 @@ html, body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+/* ── Background image ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,0.84) 0%, rgba(10,10,10,0.84) 100%),
+    url('bg-about.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
 a {
   color: var(--link);
   text-decoration: none;
@@ -40,7 +55,7 @@ a:hover { border-bottom-color: var(--text); }
 
 /* ── Navigation ── */
 nav {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 28px 28px 0;
   display: flex;
@@ -70,13 +85,14 @@ nav {
 .nav-links a:hover,
 .nav-links a.active { color: var(--text); }
 
-/* ── Main content ── */
+/* ── Main ── */
 main {
-  max-width: 680px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 52px 28px 120px;
 }
 header {
+  max-width: 680px;
   padding-bottom: 32px;
   border-bottom: 1px solid var(--rule);
   margin-bottom: 48px;
@@ -108,26 +124,92 @@ header .tagline {
   border-bottom: 1px solid var(--rule-strong);
   padding-bottom: 1px;
 }
+
+/* ── About layout with photos ── */
+.about-layout {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) 140px;
+  gap: 36px;
+  align-items: start;
+}
+.bio-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.bio-photo img,
+.bio-photo .photo-placeholder {
+  width: 130px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--rule-strong);
+  display: block;
+}
+.bio-photo .photo-placeholder {
+  background: var(--rule-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 12px;
+}
+.bio-photo-right {
+  margin-top: 24px;
+}
+
 p { margin: 0 0 16px; }
 p:last-child { margin-bottom: 0; }
+
+/* ── Footer ── */
 footer {
-  max-width: 680px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0 28px 48px;
+  padding: 18px 28px 48px;
   border-top: 1px solid var(--rule);
   color: var(--muted);
   font-size: 0.85rem;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.02em;
-  padding-top: 18px;
 }
+
+/* ── Scroll fade-in ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 ::selection { background: #ededed; color: #0a0a0a; }
-@media (max-width: 520px) {
+
+@media (max-width: 700px) {
   nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; }
   main { padding: 36px 20px 72px; }
   body { font-size: 18px; }
-  header h1 { font-size: 1.9rem; }
   footer { padding-left: 20px; padding-right: 20px; }
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+  .bio-photo {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .bio-photo img,
+  .bio-photo .photo-placeholder {
+    width: 90px;
+    height: 110px;
+  }
+  .bio-photo-right { margin-top: 0; }
 }
 </style>
 </head>
@@ -144,38 +226,73 @@ footer {
 </nav>
 
 <main>
-  <header>
+  <header class="fade-in">
     <h1>Natasha C. Greenstein</h1>
     <p class="tagline">Mapping the landscapes of interdisciplinary convergence</p>
     <div class="links-row">
       <a href="mailto:natasha.greenstein@gmail.com">Email</a>
-      <a href="Greenstein_Natasha_CV (1).pdf">CV</a>
+      <a href="cv.pdf">CV</a>
       <a href="https://scholar.google.com/citations?user=uBGciMwAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
       <a href="https://www.linkedin.com/in/natasha-greenstein-31a405197/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </header>
 
-  <p>
-    What happens when the great mysteries of life converge on each other?
-    When the subtle way of the Dao guides us towards the ever present yet ever fleeting moments of infinite quantum fields?
-    When the curves and whorls of psychedelic experiences mirror the curves and whorls of our lungs, our veins, the stars, the trees?
-    What happens when the great mysteries of life converge?
-    We begin to see patterns in the way things behave. Trends in the way things function.
-    And in our endless pursuit to quantify these phenomena, we find ourselves at the geometric representation of interdisciplinary junction.
-  </p>
-  <p>
-    From theoretical validation of quantum biology experimental results to computational fractal analysis merging scales of complex systems,
-    the core of my projects is to answer these questions empirically. For example, how does quantum information express itself in neurobiological systems?
-    Are magnetic fields of biological orders of magnitude sufficient for altering information on quantum computers?
-    Trained in the Physics Department of Princeton University for my Bachelor's, I am currently completing my Master's in Brain and Cognition at
-    Universitat Pompeu Fabra in Barcelona.
-    Curious? Let's connect with Nature and explore the depths of the Universe together.
-  </p>
+  <div class="about-layout">
+    <!-- Left photo: replace photo-1.jpg with your image filename once uploaded -->
+    <div class="bio-photo fade-in">
+      <div class="photo-placeholder">Photo coming soon</div>
+      <!-- Once you upload your photo, replace the div above with:
+           <img src="photo-1.jpg" alt="Natasha Greenstein" /> -->
+    </div>
+
+    <div class="bio-text">
+      <p class="fade-in">
+        What happens when the great mysteries of life converge on each other?
+        When the subtle way of the Dao guides us towards the ever present yet ever fleeting moments of infinite quantum fields?
+        When the curves and whorls of psychedelic experiences mirror the curves and whorls of our lungs, our veins, the stars, the trees?
+        What happens when the great mysteries of life converge?
+        We begin to see patterns in the way things behave. Trends in the way things function.
+        And in our endless pursuit to quantify these phenomena, we find ourselves at the geometric representation of interdisciplinary junction.
+      </p>
+      <p class="fade-in">
+        From theoretical validation of quantum biology experimental results to computational fractal analysis merging scales of complex systems,
+        the core of my projects is to answer these questions empirically. For example, how does quantum information express itself in neurobiological systems?
+        Are magnetic fields of biological orders of magnitude sufficient for altering information on quantum computers?
+        Trained in the Physics Department of Princeton University for my Bachelor's, I am currently completing my Master's in Brain and Cognition at
+        Universitat Pompeu Fabra in Barcelona.
+        Curious? Let's connect with Nature and explore the depths of the Universe together.
+      </p>
+    </div>
+
+    <!-- Right photo: replace photo-2.jpg with your image filename once uploaded -->
+    <div class="bio-photo bio-photo-right fade-in">
+      <div class="photo-placeholder">Photo coming soon</div>
+      <!-- Once you upload your photo, replace the div above with:
+           <img src="photo-2.jpg" alt="Natasha Greenstein" /> -->
+    </div>
+  </div>
 </main>
 
-<footer>
+<footer class="fade-in">
   &copy; Natasha Greenstein &middot; Barcelona
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(function (el) {
+    observer.observe(el);
+  });
+});
+</script>
 
 </body>
 </html>
