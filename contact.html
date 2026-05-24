@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Natasha C. Greenstein</title>
-<meta name="description" content="Natasha C. Greenstein — mapping terrain of interdisciplinary convergence">
+<title>Contact — Natasha C. Greenstein</title>
+<meta name="description" content="Get in touch with Natasha C. Greenstein">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -37,8 +37,6 @@ a {
   transition: border-color 160ms ease;
 }
 a:hover { border-bottom-color: var(--text); }
-
-/* ── Navigation ── */
 nav {
   max-width: 680px;
   margin: 0 auto;
@@ -69,30 +67,33 @@ nav {
 }
 .nav-links a:hover,
 .nav-links a.active { color: var(--text); }
-
-/* ── Main content ── */
 main {
   max-width: 680px;
   margin: 0 auto;
   padding: 52px 28px 120px;
 }
-header {
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 48px;
-}
-header h1 {
+h1.page-title {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 2.2rem;
   font-weight: 500;
-  margin: 0 0 6px;
+  margin: 0 0 48px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--rule);
   letter-spacing: -0.005em;
 }
-header .tagline {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-style: italic;
+.contact-block {
+  margin-bottom: 36px;
+}
+.contact-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
   color: var(--muted);
-  margin: 0 0 22px;
+  margin: 0 0 8px;
+}
+.contact-value {
   font-size: 1.05rem;
 }
 .links-row {
@@ -103,30 +104,25 @@ header .tagline {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
 }
-.links-row a {
-  border-bottom: 1px solid var(--rule-strong);
-  padding-bottom: 1px;
-}
-p { margin: 0 0 16px; }
-p:last-child { margin-bottom: 0; }
 footer {
   max-width: 680px;
   margin: 0 auto;
-  padding: 0 28px 48px;
+  padding: 18px 28px 48px;
   border-top: 1px solid var(--rule);
   color: var(--muted);
   font-size: 0.85rem;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.02em;
-  padding-top: 18px;
 }
 ::selection { background: #ededed; color: #0a0a0a; }
 @media (max-width: 520px) {
   nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; }
   main { padding: 36px 20px 72px; }
   body { font-size: 18px; }
-  header h1 { font-size: 1.9rem; }
   footer { padding-left: 20px; padding-right: 20px; }
 }
 </style>
@@ -136,41 +132,33 @@ footer {
 <nav>
   <a href="index.html" class="nav-name">Natasha C. Greenstein</a>
   <div class="nav-links">
-    <a href="index.html" class="active">About</a>
+    <a href="index.html">About</a>
     <a href="research.html">Research</a>
     <a href="media.html">Media</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </div>
 </nav>
 
 <main>
-  <header>
-    <h1>Natasha C. Greenstein</h1>
-    <p class="tagline">Mapping the landscapes of interdisciplinary convergence</p>
-    <div class="links-row">
-      <a href="mailto:natasha.greenstein@gmail.com">Email</a>
-      <a href="cv.pdf">CV</a>
-      <a href="https://scholar.google.com/citations?user=uBGciMwAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
-      <a href="https://www.linkedin.com/in/natasha-greenstein-31a405197/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </header>
+  <h1 class="page-title">Contact</h1>
 
-  <p>
-    What happens when the great mysteries of life converge on each other?
-    When the subtle way of the Dao guides us towards the ever present yet ever fleeting moments of infinite quantum fields?
-    When the curves and whorls of psychedelic experiences mirror the curves and whorls of our lungs, our veins, the stars, the trees?
-    What happens when the great mysteries of life converge?
-    We begin to see patterns in the way things behave. Trends in the way things function.
-    And in our endless pursuit to quantify these phenomena, we find ourselves at the geometric representation of interdisciplinary junction.
-  </p>
-  <p>
-    From theoretical validation of quantum biology experimental results to computational fractal analysis merging scales of complex systems,
-    the core of my projects is to answer these questions empirically. For example, how does quantum information express itself in neurobiological systems?
-    Are magnetic fields of biological orders of magnitude sufficient for altering information on quantum computers?
-    Trained in the Physics Department of Princeton University for my Bachelor's, I am currently completing my Master's in Brain and Cognition at
-    Universitat Pompeu Fabra in Barcelona.
-    Curious? Let's connect with Nature and explore the depths of the Universe together.
-  </p>
+  <div class="contact-block">
+    <p class="contact-label">Email</p>
+    <p class="contact-value">
+      <a href="mailto:natasha.greenstein@gmail.com">natasha.greenstein@gmail.com</a>
+    </p>
+  </div>
+
+  <div class="contact-block">
+    <p class="contact-label">Based in</p>
+    <p class="contact-value">Barcelona, Spain</p>
+  </div>
+
+  <div class="links-row">
+    <a href="cv.pdf" target="_blank">CV</a>
+    <a href="https://scholar.google.com/citations?user=uBGciMwAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+    <a href="https://www.linkedin.com/in/natasha-greenstein-31a405197/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
 </main>
 
 <footer>

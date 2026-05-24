@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Natasha C. Greenstein</title>
+<meta name="description" content="Research by Natasha C. Greenstein — published papers and work in progress">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --text: #ededed;
+  --muted: #8a8a8a;
+  --rule: #1f1f1f;
+  --rule-strong: #2c2c2c;
+  --link: #ededed;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-strong);
+  transition: border-color 160ms ease;
+}
+a:hover { border-bottom-color: var(--text); }
+
+/* ── Navigation ── */
+nav {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 28px 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.nav-name {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-bottom: none;
+  color: var(--text);
+}
+.nav-links {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  gap: 22px;
+}
+.nav-links a {
+  border-bottom: none;
+  color: var(--muted);
+  transition: color 160ms ease;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--text); }
+
+/* ── Main content ── */
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 52px 28px 120px;
+}
+h1.page-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0 0 48px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--rule);
+  letter-spacing: -0.005em;
+}
+h2.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+}
+ul.entries {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 56px;
+}
+ul.entries li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+}
+ul.entries li:last-child { border-bottom: none; }
+.entry-title {
+  display: block;
+  font-weight: 500;
+}
+.entry-meta {
+  display: block;
+  color: var(--muted);
+  font-size: 0.92em;
+  font-style: italic;
+  margin-top: 3px;
+}
+.entry-meta em { font-style: normal; }
+.entry-status {
+  display: inline-block;
+  margin-top: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  padding: 1px 6px;
+}
+.entry-links {
+  margin-top: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  gap: 14px;
+}
+footer {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 18px 28px 48px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+}
+::selection { background: #ededed; color: #0a0a0a; }
+@media (max-width: 520px) {
+  nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; }
+  main { padding: 36px 20px 72px; }
+  body { font-size: 18px; }
+  footer { padding-left: 20px; padding-right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Natasha C. Greenstein</a>
+  <div class="nav-links">
+    <a href="index.html">About</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="media.html">Media</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <h1 class="page-title">Research</h1>
+
+  <h2 class="section-label">Published</h2>
+  <ul class="entries">
+    <li>
+      <span class="entry-title">Quantum-Like Dynamics in the Human Brain</span>
+      <span class="entry-meta"><em>Preprint</em>, bioRxiv, 2025.</span>
+      <div class="entry-links">
+        <a href="https://www.biorxiv.org/content/10.1101/2025.10.02.680057" target="_blank" rel="noopener">bioRxiv</a>
+      </div>
+    </li>
+    <li>
+      <span class="entry-title">Senior Thesis &mdash; Birds, Brains, and Quantum Biology: the Influence of Quantum Dynamics on Classical Biological Behavior</span>
+      <span class="entry-meta"><em>Princeton University</em>, 2025. Advised by Prof. William Bialek and Prof. Gregory Scholes.</span>
+      <div class="entry-links">
+        <a href="senior-thesis.pdf" target="_blank">PDF</a>
+      </div>
+    </li>
+    <li>
+      <span class="entry-title">Junior Paper II &mdash; Quantum-like mind: consciousness as an analogous system to quantum theory</span>
+      <span class="entry-meta"><em>Princeton University</em>, 2024. Advised by Prof. Gregory Scholes and Prof. William Bialek.</span>
+      <div class="entry-links">
+        <a href="junior-paper.pdf" target="_blank">PDF</a>
+      </div>
+    </li>
+    <li>
+      <span class="entry-title">A novel method for rapid estimation of active bone marrow dose for radiotherapy patients in epidemiological studies</span>
+      <span class="entry-meta"><em>Medical Physics</em>, American Association of Physicists in Medicine, 2024.</span>
+      <div class="entry-links">
+        <a href="https://aapm.onlinelibrary.wiley.com/doi/full/10.1002/mp.17118" target="_blank" rel="noopener">Journal</a>
+      </div>
+    </li>
+    <li>
+      <span class="entry-title">Investigation of the influence of thyroid location on iodine-131 s-values</span>
+      <span class="entry-meta"><em>Radiation Protection Dosimetry</em>, 2020.</span>
+      <div class="entry-links">
+        <a href="https://academic.oup.com/rpd/article/189/2/163/5819661" target="_blank" rel="noopener">Journal</a>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="section-label">In Progress</h2>
+  <ul class="entries">
+    <li>
+      <span class="entry-title">Turtles all the way down: mitochondrial radical pair mechanisms as quantum origins of metabolism</span>
+      <span class="entry-meta">With MemBrain co.</span>
+      <span class="entry-status">In publication process</span>
+    </li>
+    <li>
+      <span class="entry-title">Effect of low intensity static magnetic fields coupled with a light stimulation on mitochondria morphology and ROS generation</span>
+      <span class="entry-meta">With Dr. Shey-Shing Sheu.</span>
+      <span class="entry-status">In publication process</span>
+    </li>
+    <li>
+      <span class="entry-title">Congruent signatures of fractal criticality are reflected across quantum and cortical scales</span>
+      <span class="entry-meta">Thesis in progress. Invited to give talk at Quantum Effects in Biological Systems, June 2026.</span>
+      <span class="entry-status">In progress</span>
+    </li>
+    <li>
+      <span class="entry-title">Metabolism matters: scaling noise by regional oxygen consumption in whole-brain models improves fit to empirical data</span>
+      <span class="entry-status">In publication process</span>
+    </li>
+    <li>
+      <span class="entry-title">A radical pair mechanism model for conscious influence on quantum random number generators invokes biomagnetic orders of magnitude</span>
+      <span class="entry-status">In publication process</span>
+    </li>
+  </ul>
+</main>
+
+<footer>
+  &copy; Natasha Greenstein &middot; Barcelona
+</footer>
+
+</body>
+</html>
