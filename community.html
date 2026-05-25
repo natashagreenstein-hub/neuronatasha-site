@@ -179,15 +179,22 @@ h1.page-title {
   content: 'Image';
 }
   
-  .role-image--natural {
+.role-image--natural {
   aspect-ratio: auto;
   height: auto;
   background: transparent;
   border: none;
+  overflow: visible;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 .role-image--natural img {
-  height: auto;
+  width: auto;
+  height: 280px;
+  max-width: none;
 }
+
 footer {
   max-width: 1100px;
   margin: 0 auto;
