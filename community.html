@@ -136,6 +136,16 @@ h1.page-title {
   font-size: 0.98rem;
   margin: 0 0 14px;
 }
+.role-org a {
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 1px;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.role-org a:hover {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
 .role-desc {
   margin: 0;
   font-size: 1rem;
@@ -177,7 +187,6 @@ footer {
 </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-name">Natasha C. Greenstein</a>
   <div class="nav-links">
@@ -188,26 +197,22 @@ footer {
     <a href="contact.html">Contact</a>
   </div>
 </nav>
-
 <main>
   <h1 class="page-title fade-in">Community</h1>
   <p class="page-subtitle fade-in">Leadership in the spaces between disciplines.</p>
-
   <ul class="roles">
-
     <li class="role fade-in">
       <div class="role-year">2026</div>
       <div class="role-body">
         <h3 class="role-title">Labs Coordinator</h3>
-        <p class="role-org">Intercollegiate Psychedelics Network (IPN)</p>
+        <p class="role-org"><a href="https://www.intercollegiatepsychedelics.net/" target="_blank" rel="noopener">Intercollegiate Psychedelics Network (IPN)</a></p>
         <p class="role-desc">
           My time serving as President of Terrace and PsiClub centered my heart in community, and IPN is a wonderful contiunation of this path.
           As IPN Labs, we host a monthly seminar speaker series spanning altered states, plants, consciousness research, and the integration of quantum science.
-          We connect students and researchers across institutions working at the frontiers of psychedelic and consciousness science, forging a new path forward for academia, industry, and indepdent organizations alike. 
+          We connect students and researchers across institutions working at the frontiers of psychedelic and consciousness science, forging a new path forward for academia, industry, and indepdent organizations alike.
         </p>
       </div>
     </li>
-
     <li class="role fade-in">
       <div class="role-year">2025</div>
       <div class="role-body">
@@ -222,12 +227,11 @@ footer {
         </p>
       </div>
     </li>
-
     <li class="role fade-in">
       <div class="role-year">2024</div>
       <div class="role-body">
         <h3 class="role-title">President</h3>
-        <p class="role-org">Terrace F. Club, Princeton University</p>
+        <p class="role-org"><a href="https://princetonterraceclub.org/" target="_blank" rel="noopener">Terrace F. Club</a>, Princeton University</p>
         <p class="role-desc">
           My junior year, I was asked to run for President of Terrace, Princeton's longtime muscial epicenter and home that has always made room for the unconventional.
           This position changed my life in many ways, it broke me down and built me up, showed me the magic of life, and most significantly soothed my soul with the sound of music.
@@ -235,12 +239,9 @@ footer {
         </p>
       </div>
     </li>
-
   </ul>
 </main>
-
 <footer class="fade-in">&copy; Natasha Greenstein &middot; Barcelona</footer>
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const observer = new IntersectionObserver(function (entries) {
