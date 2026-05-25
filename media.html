@@ -49,7 +49,7 @@ a {
 }
 a:hover { border-bottom-color: var(--text); }
 nav {
-  max-width: 720px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 28px 28px 0;
   display: flex;
@@ -79,7 +79,7 @@ nav {
 .nav-links a:hover,
 .nav-links a.active { color: var(--text); }
 main {
-  max-width: 720px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 52px 28px 120px;
 }
@@ -99,40 +99,133 @@ h2.section-label {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--muted);
-  margin: 0 0 18px;
+  margin: 0 0 30px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--rule);
 }
-ul.entries {
+/* ── Video entries ── */
+.video-list {
   list-style: none;
   padding: 0;
   margin: 0 0 56px;
 }
-ul.entries li {
-  padding: 16px 0;
+.video-entry {
+  padding: 24px 0 36px;
   border-bottom: 1px solid var(--rule);
 }
-ul.entries li:last-child { border-bottom: none; }
-.entry-title { display: block; font-weight: 500; }
-.entry-meta {
+.video-entry:last-child { border-bottom: none; }
+.video-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 18px;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+.video-body {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.video-cover {
+  position: relative;
   display: block;
-  color: var(--muted);
-  font-size: 0.92em;
-  font-style: italic;
-  margin-top: 3px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 3px;
+  border: 1px solid var(--rule-strong);
+  overflow: hidden;
+  background: linear-gradient(180deg, #161616 0%, #0e0e0e 100%);
+  border-bottom: 1px solid var(--rule-strong);
+  transition: border-color 200ms ease;
 }
-.entry-meta em { font-style: normal; }
-.entry-links {
-  margin-top: 7px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.video-cover:hover { border-color: var(--muted); }
+.video-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 200ms ease, transform 400ms ease;
+}
+.video-cover:hover img { opacity: 0.85; transform: scale(1.015); }
+.video-cover .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.55);
+  border: 1px solid rgba(237, 237, 237, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
-  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-size: 0.85rem;
+  padding-left: 3px;
+  transition: background 200ms ease, border-color 200ms ease;
+  pointer-events: none;
 }
+.video-cover:hover .play-icon {
+  background: rgba(10, 10, 10, 0.75);
+  border-color: var(--text);
+}
+.video-cover.no-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 16px;
+}
+.video-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 4px;
+}
+.watch-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  color: var(--text);
+  padding: 11px 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+.watch-btn:hover {
+  border-color: var(--text);
+  background: rgba(237, 237, 237, 0.06);
+}
+.watch-btn .arrow {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+.video-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+.video-meta em { font-style: normal; color: var(--text); }
 footer {
-  max-width: 720px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 18px 28px 48px;
   border-top: 1px solid var(--rule);
@@ -151,11 +244,16 @@ footer {
   transform: translateY(0);
 }
 ::selection { background: #ededed; color: #0a0a0a; }
-@media (max-width: 520px) {
+@media (max-width: 720px) {
   nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; }
   main { padding: 36px 20px 72px; }
   body { font-size: 18px; }
   footer { padding-left: 20px; padding-right: 20px; }
+  .video-body {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .video-title { font-size: 1.15rem; }
 }
 </style>
 </head>
@@ -164,9 +262,10 @@ footer {
 <nav>
   <a href="index.html" class="nav-name">Natasha C. Greenstein</a>
   <div class="nav-links">
-    <a href="index.html">About</a>
+    <a href="about.html">About</a>
     <a href="research.html">Research</a>
     <a href="media.html" class="active">Media</a>
+    <a href="community.html">Community</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
@@ -175,28 +274,62 @@ footer {
   <h1 class="page-title fade-in">Media</h1>
 
   <h2 class="section-label fade-in">Talks</h2>
-  <ul class="entries">
-    <li class="fade-in">
-      <span class="entry-title">From spin states to neural correlates: the quantum mechanical basis of avian navigation</span>
-      <span class="entry-meta"><em>BARCCSYN</em> &mdash; Barcelona Computational, Cognitive and Systems Neuroscience, Girona, January 2026.</span>
-      <div class="entry-links">
-        <a href="https://www.youtube.com/watch?v=FYTkWvm7Za8&t=1788s" target="_blank" rel="noopener">YouTube</a>
+  <ul class="video-list">
+
+    <!-- Video 1 — BARCCSYN / YouTube -->
+    <li class="video-entry fade-in">
+      <h3 class="video-title">From spin states to neural correlates: the quantum mechanical basis of avian navigation</h3>
+      <div class="video-body">
+        <a class="video-cover" href="https://www.youtube.com/watch?v=FYTkWvm7Za8&t=1788s" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+          <img src="https://img.youtube.com/vi/FYTkWvm7Za8/maxresdefault.jpg" alt="BARCCSYN talk thumbnail" />
+          <span class="play-icon">&#9654;</span>
+        </a>
+        <div class="video-side">
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=FYTkWvm7Za8&t=1788s" target="_blank" rel="noopener">
+            Watch <span class="arrow">↗</span>
+          </a>
+          <p class="video-meta"><em>BARCCSYN</em> &mdash; Barcelona Computational, Cognitive and Systems Neuroscience, Girona, January 2026.</p>
+        </div>
       </div>
     </li>
-    <li class="fade-in">
-      <span class="entry-title">How Birds Use Quantum Mechanics to Migrate Across the Globe</span>
-      <span class="entry-meta"><em>Princeton Research Day</em>, 2025.</span>
-      <div class="entry-links">
-        <a href="https://mediacentral.princeton.edu/media/How+Birds+Use+Quantum+Mechanics+to+Migrate+Across+the+Globe%2C+Natasha+Greenstein%2C+UG+25+%2815834%29/1_p0m1ii71/13468231" target="_blank" rel="noopener">Watch</a>
+
+    <!-- Video 2 — Princeton Research Day 2025 -->
+    <!-- Cover image: save thumbnail as "media-pr-2025.jpg" in this folder.
+         You can use PrincetonResearchDay_050825_0017.jpg if you want to repurpose that photo. -->
+    <li class="video-entry fade-in">
+      <h3 class="video-title">How Birds Use Quantum Mechanics to Migrate Across the Globe</h3>
+      <div class="video-body">
+        <a class="video-cover" href="https://mediacentral.princeton.edu/media/How+Birds+Use+Quantum+Mechanics+to+Migrate+Across+the+Globe%2C+Natasha+Greenstein%2C+UG+25+%2815834%29/1_p0m1ii71/13468231" target="_blank" rel="noopener" aria-label="Watch on Princeton Media Central">
+          <img src="media-pr-2025.jpg" alt="Princeton Research Day 2025 thumbnail" onerror="this.style.display='none';this.parentNode.classList.add('no-image');this.parentNode.querySelector('.play-icon').style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span>Princeton Research Day &middot; 2025</span>');" />
+          <span class="play-icon">&#9654;</span>
+        </a>
+        <div class="video-side">
+          <a class="watch-btn" href="https://mediacentral.princeton.edu/media/How+Birds+Use+Quantum+Mechanics+to+Migrate+Across+the+Globe%2C+Natasha+Greenstein%2C+UG+25+%2815834%29/1_p0m1ii71/13468231" target="_blank" rel="noopener">
+            Watch <span class="arrow">↗</span>
+          </a>
+          <p class="video-meta"><em>Princeton Research Day</em>, 2025.</p>
+        </div>
       </div>
     </li>
-    <li class="fade-in">
-      <span class="entry-title">Quantum-Like Mind: Consciousness as an Analogous System to Quantum Theory</span>
-      <span class="entry-meta"><em>Princeton Research Day</em>, 2024.</span>
-      <div class="entry-links">
-        <a href="https://mediacentral.princeton.edu/media/Quantum-Like+MindA+Consciousness+as+an+Analogous+System+to+Quantum+Theory%2C+Natasha+Greenstein%2C+UG+%2725+%282FE4462F%29/1_sazfbjzi" target="_blank" rel="noopener">Watch</a>
+
+    <!-- Video 3 — Princeton Research Day 2024 -->
+    <!-- Cover image: save thumbnail as "media-pr-2024.jpg" in this folder. -->
+    <li class="video-entry fade-in">
+      <h3 class="video-title">Quantum-Like Mind: Consciousness as an Analogous System to Quantum Theory</h3>
+      <div class="video-body">
+        <a class="video-cover" href="https://mediacentral.princeton.edu/media/Quantum-Like+MindA+Consciousness+as+an+Analogous+System+to+Quantum+Theory%2C+Natasha+Greenstein%2C+UG+%2725+%282FE4462F%29/1_sazfbjzi" target="_blank" rel="noopener" aria-label="Watch on Princeton Media Central">
+          <img src="media-pr-2024.jpg" alt="Princeton Research Day 2024 thumbnail" onerror="this.style.display='none';this.parentNode.classList.add('no-image');this.parentNode.querySelector('.play-icon').style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span>Princeton Research Day &middot; 2024</span>');" />
+          <span class="play-icon">&#9654;</span>
+        </a>
+        <div class="video-side">
+          <a class="watch-btn" href="https://mediacentral.princeton.edu/media/Quantum-Like+MindA+Consciousness+as+an+Analogous+System+to+Quantum+Theory%2C+Natasha+Greenstein%2C+UG+%2725+%282FE4462F%29/1_sazfbjzi" target="_blank" rel="noopener">
+            Watch <span class="arrow">↗</span>
+          </a>
+          <p class="video-meta"><em>Princeton Research Day</em>, 2024.</p>
+        </div>
       </div>
     </li>
+
   </ul>
 </main>
 

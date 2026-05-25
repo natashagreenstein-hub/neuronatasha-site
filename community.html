@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community — Natasha C. Greenstein</title>
+<meta name="description" content="Leadership and community work by Natasha C. Greenstein">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --text: #ededed;
+  --muted: #8a8a8a;
+  --rule: #1f1f1f;
+  --rule-strong: #2c2c2c;
+  --link: #ededed;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,0.84) 0%, rgba(10,10,10,0.84) 100%),
+    url('bg-community.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-strong);
+  transition: border-color 160ms ease;
+}
+a:hover { border-bottom-color: var(--text); }
+nav {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 28px 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.nav-name {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-bottom: none;
+  color: var(--text);
+}
+.nav-links {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  gap: 22px;
+}
+.nav-links a {
+  border-bottom: none;
+  color: var(--muted);
+  transition: color 160ms ease;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--text); }
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 52px 28px 120px;
+}
+h1.page-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0 0 8px;
+  letter-spacing: -0.005em;
+}
+.page-subtitle {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 0 0 48px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--rule);
+}
+/* ── Role entries ── */
+.roles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.role {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 36px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.role:last-child { border-bottom: none; }
+.role-year {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  padding-top: 4px;
+}
+.role-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 0 4px;
+  letter-spacing: -0.005em;
+  line-height: 1.35;
+}
+.role-org {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin: 0 0 14px;
+}
+.role-desc {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.role-desc + .role-desc { margin-top: 12px; }
+footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 18px 28px 48px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+::selection { background: #ededed; color: #0a0a0a; }
+@media (max-width: 600px) {
+  nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; }
+  main { padding: 36px 20px 72px; }
+  body { font-size: 18px; }
+  footer { padding-left: 20px; padding-right: 20px; }
+  .role {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 24px 0;
+  }
+  .role-year { padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Natasha C. Greenstein</a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="media.html">Media</a>
+    <a href="community.html" class="active">Community</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <h1 class="page-title fade-in">Community</h1>
+  <p class="page-subtitle fade-in">Leadership in the spaces between disciplines.</p>
+
+  <ul class="roles">
+
+    <li class="role fade-in">
+      <div class="role-year">2026</div>
+      <div class="role-body">
+        <h3 class="role-title">Labs Coordinator</h3>
+        <p class="role-org">Intercollegiate Psychedelics Network (IPN)</p>
+        <p class="role-desc">
+          Hosting a seminar speaker series spanning altered states, plants, consciousness research, and the integration of quantum science.
+          Connecting students and researchers across institutions working at the frontiers of psychedelic and consciousness science.
+        </p>
+      </div>
+    </li>
+
+    <li class="role fade-in">
+      <div class="role-year">2025</div>
+      <div class="role-body">
+        <h3 class="role-title">President</h3>
+        <p class="role-org">PsiClub, Princeton University</p>
+        <p class="role-desc">
+          Led Princeton's student community for psychedelic and consciousness studies — organizing discussions, talks, and gatherings
+          that brought together scientific, philosophical, and experiential perspectives on the mind.
+        </p>
+      </div>
+    </li>
+
+    <li class="role fade-in">
+      <div class="role-year">2024</div>
+      <div class="role-body">
+        <h3 class="role-title">President</h3>
+        <p class="role-org">Terrace F. Club, Princeton University</p>
+        <p class="role-desc">
+          Served as president of Terrace, Princeton's longtime home for creative and intellectually curious students.
+          Stewarded club culture, social programming, and a community that has always made room for the unconventional.
+        </p>
+      </div>
+    </li>
+
+  </ul>
+</main>
+
+<footer class="fade-in">&copy; Natasha Greenstein &middot; Barcelona</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.fade-in').forEach(function (el) { observer.observe(el); });
+});
+</script>
+</body>
+</html>

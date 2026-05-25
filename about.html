@@ -57,7 +57,7 @@ nav {
   padding: 28px 36px 0;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-end;
 }
 .nav-name {
   font-family: 'EB Garamond', Georgia, serif;
@@ -65,6 +65,28 @@ nav {
   font-weight: 500;
   border-bottom: none;
   color: var(--text);
+}
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.lang-switcher {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-switcher .label {
+  opacity: 0.7;
+}
+.lang-switcher .sep {
+  opacity: 0.4;
+  margin: 0 2px;
 }
 .nav-links {
   font-family: 'Inter', sans-serif;
@@ -194,7 +216,8 @@ footer {
 }
 ::selection { background: #ededed; color: #0a0a0a; }
 @media (max-width: 800px) {
-  nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; }
+  nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; align-items: flex-start; }
+  .nav-right { align-items: flex-start; }
   main { padding: 36px 20px 72px; }
   body { font-size: 18px; }
   footer { padding: 18px 20px 48px; }
@@ -225,11 +248,22 @@ footer {
 <body>
 <nav>
   <a href="index.html" class="nav-name">Natasha C. Greenstein</a>
-  <div class="nav-links">
-    <a href="about.html" class="active">About</a>
-    <a href="research.html">Research</a>
-    <a href="media.html">Media</a>
-    <a href="contact.html">Contact</a>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <span class="label">Languages:</span>
+      <span>EN</span>
+      <span class="sep">|</span>
+      <span>中文</span>
+      <span class="sep">|</span>
+      <span>ES</span>
+    </div>
+    <div class="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="research.html">Research</a>
+      <a href="media.html">Media</a>
+      <a href="community.html">Community</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 </nav>
 <main>
@@ -243,7 +277,6 @@ footer {
       <a href="https://www.linkedin.com/in/natasha-greenstein-31a405197/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </header>
-
   <!-- Section 1 — text left, photo right -->
   <section class="bio-section">
     <div class="bio-text fade-in">
@@ -262,68 +295,60 @@ footer {
       And as the warmth and glow expanded in my field, I couldn't help but wonder if the somatic pain I was experiencing from head trauma was related to these waves.
       In a moment I will always remember, I asked <em>"Are my neurons entangled with each other? And if they can entangle with each other, what else can they entangle with?"</em>
     </p>
-
     </div>
     <div class="bio-photo fade-in">
       <img src="dom1.jpg" alt="Natasha1" />
-      <!-- To use a real image: <img src="photo-1.jpg" alt="Natasha Greenstein" /> -->
     </div>
   </section>
-
   <!-- Section 2 — photo left, text right -->
   <section class="bio-section reverse">
     <div class="bio-text fade-in">
       <span class="eyebrow">Princeton</span>
       <p>
-        It turns out these questions were at the forefront of the first quantum revolution, posed by Bohr and Einstein themselves. So why wasn't anyone talking about it?  
+        It turns out these questions were at the forefront of the first quantum revolution, posed by Bohr and Einstein themselves. So why wasn't anyone talking about it?
         Quantum incorporation in biological and consciousness sciences had been surpressed for decades, for no less scientific a reason than shoddy calculations and political utility.
-        But I was curious. And stubborn. So I kept following the path. I was led to Professors William Bialek and Gregory Scholes. 
+        But I was curious. And stubborn. So I kept following the path. I was led to Professors William Bialek and Gregory Scholes.
         With my mentors, I wrote my two part bachelor's thesis <em>Birds, Brains, and Quantum Biology: the Influence of Quantum Dynamics on Classical Biological Behavior</em>,
-        where I first derive an original Hamiltonian for the radical pair mechanism in avian navigation and then provide the first direct evidence that the human brain exhibits Quantum-Like behavior 
+        where I first derive an original Hamiltonian for the radical pair mechanism in avian navigation and then provide the first direct evidence that the human brain exhibits Quantum-Like behavior
         -- that is, a <em>classical</em> system which <em>behaves</em> like a quantum one.
         The second half was with Professor Gustavo Deco, a collaboration born when I reached out to his group following an instinct that their work was the computational neuroscience bridge to my theoretical physics thesis.
       </p>
     </div>
     <div class="bio-photo fade-in">
       <img src="IMG_3596.jpeg" alt="Natasha2" />
-      <!-- To use a real image: <img src="photo-2.jpg" alt="Natasha Greenstein" /> -->
     </div>
   </section>
-
   <!-- Section 3 — text left, photo right -->
   <section class="bio-section">
     <div class="bio-text fade-in">
       <span class="eyebrow">Currently</span>
       <p>
-        A year later, I moved to Barcelona for my master's in Brain and Cognition at Universitat Pompeu Fabra with Prof. Deco. 
-        Here, I've synthesized the quantum and quantum-likeness of my bachelor's thesis into one master's thesis 
+        A year later, I moved to Barcelona for my master's in Brain and Cognition at Universitat Pompeu Fabra with Prof. Deco.
+        Here, I've synthesized the quantum and quantum-likeness of my bachelor's thesis into one master's thesis
         <em>Congruent signatures of fractal criticality are reflected across quantum and cortical scales</em>. Here, we see patterns in quantum information propagated up scales nine orders of magnitude to the human cortex.
         Additionally, following the summer after my senior year at Princeton I was recruited by The Institute of Noetic Sciences (IONS) for the formalism in the birds segment of my bachelor's thesis.
-        Currently, with IONS President Dr. Thomas Brophy, we are investigating the biomagnetic influence of conscious agents on quantum random number generators. 
-        In the beginning of 2026 I also began serving as the Intercollegiate Psychedelics Network Labs Coordinator, where we host seminar speaker series for all things altered states, plants, consciousness, and recently, the integration of quantum science.  
+        Currently, with IONS President Dr. Thomas Brophy, we are investigating the biomagnetic influence of conscious agents on quantum random number generators.
+        In the beginning of 2026 I also began serving as the Intercollegiate Psychedelics Network Labs Coordinator, where we host seminar speaker series for all things altered states, plants, consciousness, and recently, the integration of quantum science.
       </p>
     </div>
     <div class="bio-photo fade-in">
       <img src="dom2.jpg" alt="About3" />
-      <!-- To use a real image: <img src="photo-3.jpg" alt="Natasha Greenstein" /> -->
     </div>
   </section>
-
   <!-- Section 4 — photo left, text right -->
   <section class="bio-section reverse">
     <div class="bio-text fade-in">
       <span class="eyebrow">Future</span>
       <p>
         Finally, what is the point of all this? Why do we care about Quantum Biology?
-        Very simply, Quantum Biology is the future of Medicine. Most QB processes are interactions with visible or infrared light and weak magnetic fields -- and they underlie important biophysical systems, like cellular respiration. 
+        Very simply, Quantum Biology is the future of Medicine. Most QB processes are interactions with visible or infrared light and weak magnetic fields -- and they underlie important biophysical systems, like cellular respiration.
         All you need to create a magnetic field is a wire. All you need for light is a source, like a bulb or a laser.
         This makes treatment protocols not just non-invasive and direct by addressing the root of the issue rather than the symptom, it also makes them <em>incredibly inexpensive</em>.
-        From reversing the Warburg effect in cancer cells to repairing DNA, Quantum Biology is the science that brings us into the new age of healing in modernity.  
+        From reversing the Warburg effect in cancer cells to repairing DNA, Quantum Biology is the science that brings us into the new age of healing in modernity.
       </p>
     </div>
     <div class="bio-photo fade-in">
       <img src="qmed.jpg" alt="About4" />
-      <!-- To use a real image: <img src="photo-4.jpg" alt="Natasha Greenstein" /> -->
     </div>
   </section>
 </main>
