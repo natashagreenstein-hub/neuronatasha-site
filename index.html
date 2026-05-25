@@ -114,11 +114,15 @@ nav {
 }
 .poem {
   font-family: 'EB Garamond', Georgia, serif;
+  max-width: 640px;
+  margin: 24px auto 48px;
+  color: var(--text);
+}
+.poem .stanza {
+  font-family: 'EB Garamond', Georgia, serif;
   font-size: 1.15rem;
   line-height: 1.75;
-  max-width: 640px;
-  margin: 0 auto 48px;
-  color: var(--text);
+  margin: 1.25rem 0;
 }
 .learn-more {
   font-family: 'Inter', sans-serif;
@@ -151,12 +155,17 @@ nav {
 .fade-in.delay-1 { transition-delay: 0.15s; }
 .fade-in.delay-2 { transition-delay: 0.35s; }
 .fade-in.delay-3 { transition-delay: 0.55s; }
+.fade-in.delay-4 { transition-delay: 0.75s; }
+.fade-in.delay-5 { transition-delay: 0.95s; }
+.fade-in.delay-6 { transition-delay: 1.15s; }
+.fade-in.delay-7 { transition-delay: 1.35s; }
+.fade-in.delay-8 { transition-delay: 1.55s; }
 ::selection { background: #ededed; color: #0a0a0a; }
 @media (max-width: 700px) {
   nav { flex-direction: column; gap: 14px; padding: 22px 20px 0; }
   .hero { padding: 40px 20px 60px; min-height: calc(100vh - 100px); }
   .hero h1 { font-size: 2rem; }
-  .poem { font-size: 1.05rem; }
+  .poem .stanza { font-size: 1.05rem; }
   body { font-size: 18px; }
 }
 </style>
@@ -173,22 +182,16 @@ nav {
   </div>
 </nav>
 <section class="hero">
-  <h1 class="fade-in">Where Quantum Meets Life Science</h1>
-  <p class="poem fade-in delay-2">
-    What happens when the great mysteries of life converge on each other?
-    </p>
-    When the subtle way of the Dao guides us towards the ever present yet ever fleeting moments of infinite quantum fields?
-    </p>
-    When the curves and whorls of psychedelic experiences mirror the curves and whorls of our lungs, our veins, the stars, the trees?
-    </p>
-    What happens when the great mysteries of life converge?
-    </p>
-    We begin to see patterns in the way things behave. Trends in the way things function.
-    </p>
-    And in our endless pursuit to quantify these phenomena, we find ourselves at the geometric representation of interdisciplinary junction.
-    </p>
-  </p>
-  <a href="about.html" class="learn-more fade-in delay-3">Learn More</a>
+  <h1 class="fade-in">Quantum Meets Life Science</h1>
+  <div class="poem">
+    <div class="stanza fade-in delay-2">What happens when the great mysteries of life converge on each other?</div>
+    <div class="stanza fade-in delay-3">When the subtle way of the Dao guides us towards the ever present yet ever fleeting moments of infinite quantum fields?</div>
+    <div class="stanza fade-in delay-4">When the curves and whorls of psychedelic experiences mirror the curves and whorls of our lungs, our veins, the stars, the trees?</div>
+    <div class="stanza fade-in delay-5">What happens when the great mysteries of life converge?</div>
+    <div class="stanza fade-in delay-6">We begin to see patterns in the way things behave. Trends in the way things function.</div>
+    <div class="stanza fade-in delay-7">And in our endless pursuit to quantify these phenomena, we find ourselves at the geometric representation of interdisciplinary junction.</div>
+  </div>
+  <a href="about.html" class="learn-more fade-in delay-8">Learn More</a>
 </section>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
