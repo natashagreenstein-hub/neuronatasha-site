@@ -178,6 +178,16 @@ h1.page-title {
 .role-image.placeholder::before {
   content: 'Image';
 }
+  
+  .role-image--natural {
+  aspect-ratio: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+}
+.role-image--natural img {
+  height: auto;
+}
 footer {
   max-width: 1100px;
   margin: 0 auto;
@@ -288,9 +298,9 @@ footer {
           Our officer corps hosted weekly live rock concerts on Thursday nights and raves on Saturdays, plus other events ranging from art markets to haunted houses. Parties got up to 2000+ people!
         </p>
       </div>
-      <div class="role-image">
+      <div class="role-image role-image--natural">
         <img src="signal-2025-05-22-195211.jpeg" alt="Terrace officer corps photo"
-             onerror="this.style.display='none';this.parentNode.classList.add('placeholder');">
+           onerror="this.style.display='none';this.parentNode.classList.add('placeholder');">
       </div>
     </li>
   </ul>
