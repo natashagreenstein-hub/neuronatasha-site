@@ -179,20 +179,17 @@ h1.page-title {
   content: 'Image';
 }
   
+.role--wide-image {
+  grid-template-columns: 70px 1fr 420px;
+}
 .role-image--natural {
   aspect-ratio: auto;
   height: auto;
   background: transparent;
   border: none;
-  overflow: visible;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
 }
 .role-image--natural img {
-  width: auto;
-  height: 280px;
-  max-width: none;
+  height: auto;
 }
 
 footer {
@@ -294,7 +291,7 @@ footer {
              onerror="this.style.display='none';this.parentNode.classList.add('placeholder');">
       </div>
     </li>
-    <li class="role fade-in">
+    <li class="role role--wide-image fade-in">
       <div class="role-year">2024</div>
       <div class="role-body">
         <h3 class="role-title">President</h3>
